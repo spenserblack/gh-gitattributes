@@ -1,6 +1,7 @@
 # `gh gitattributes`
 
 [![CI](https://github.com/spenserblack/gh-gitattributes/actions/workflows/ci.yml/badge.svg)](https://github.com/spenserblack/gh-gitattributes/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/spenserblack/gh-gitattributes/branch/main/graph/badge.svg?token=xYXvCen5Un)](https://codecov.io/gh/spenserblack/gh-gitattributes)
 
 Copy `.gitattributes` from an (unofficial) source.
 
