@@ -1,0 +1,16 @@
+{
+    "name": "Go",
+    "image": "mcr.microsoft.com/vscode/devcontainers/go:1",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "golang.go"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}
