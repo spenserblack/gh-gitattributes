@@ -19,4 +19,4 @@ found, you will also be asked if you want to include them.
 
 The configuration values can be set with `gh config set KEY`.
 
-- `gh-gitattributes.source`: The default source repository to use
+- `gh_gitattributes_source`: The default source repository to use
