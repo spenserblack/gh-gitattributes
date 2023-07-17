@@ -1,26 +1,36 @@
 package main
 
 import (
+	"flag"
 	"fmt"
-
-	"github.com/cli/go-gh/v2/pkg/api"
+	"os"
 )
 
 func main() {
-	fmt.Println("hi world, this is the gh-gitattributes extension!")
-	client, err := api.DefaultRESTClient()
-	if err != nil {
-		fmt.Println(err)
-		return
+	cfg := newConfigOrDefault(os.Stderr)
+	setupFlags(cfg)
+	flag.Usage = func() {
+		out := flag.CommandLine.Output()
+		fmt.Fprintf(out, "Usage of %s\n", os.Args[0])
+		fmt.Fprintln(out)
+		fmt.Fprintln(out, "CONFIGURATION")
+		fmt.Fprintln(out, "\tgh_gitattributes_source")
+		fmt.Fprintln(out)
+		fmt.Fprintln(out, "FLAGS")
+		flag.PrintDefaults()
 	}
-	response := struct {Login string}{}
-	err = client.Get("user", &response)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Printf("running as %s\n", response.Login)
+	flag.Parse()
+	// fmt.Println("hi world, this is the gh-gitattributes extension!")
+	// client, err := api.DefaultRESTClient()
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+	// response := struct {Login string}{}
+	// err = client.Get("user", &response)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+	// fmt.Printf("running as %s\n", response.Login)
 }
-
-// For more examples of using go-gh, see:
-// https://github.com/cli/go-gh/blob/trunk/example_gh_test.go
