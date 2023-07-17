@@ -21,3 +21,9 @@ found, you will also be asked if you want to include them.
 The configuration values can be set with `gh config set KEY`.
 
 - `gh_gitattributes_source`: The default source repository to use
+
+## Installation
+
+```shell
+gh extension install spenserblack/gh-gitattributes
+```
