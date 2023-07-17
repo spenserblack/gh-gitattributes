@@ -59,7 +59,9 @@ func main() {
 		fmt.Println("No gitattributes files found")
 		return
 	}
-	gitattributeKeys := make([]string, 0, len(gitattributes))
+	noProject := "None - No project type"
+	gitattributeKeys := make([]string, 1, len(gitattributes) + 1)
+	gitattributeKeys[0] = noProject
 	for key := range gitattributes {
 		gitattributeKeys = append(gitattributeKeys, key)
 	}
@@ -84,7 +86,13 @@ func main() {
 	if answers.UseCommon {
 		selected = append(selected, "Common.gitattributes")
 	}
-	selected = append(selected, gitattributes[answers.Project])
+	if answers.Project != noProject {
+		selected = append(selected, gitattributes[answers.Project])
+	}
+
+	if len(selected) == 0 {
+		fmt.Fprintln(os.Stderr, "Nothing to write. The output will be empty.")
+	}
 
 	var out io.Writer
 	if *stdoutFlag {
