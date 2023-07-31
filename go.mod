@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
-	github.com/cli/go-gh/v2 v2.0.1
+	github.com/cli/go-gh/v2 v2.1.0
 )
 
 require (
